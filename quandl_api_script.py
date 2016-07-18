@@ -44,8 +44,15 @@ def get_files(file_names, target_directory_name):
         if not os.path.isfile(file_path):
             ql.get(file_name[0]).to_csv(file_path)
 
+def quandl_data(lst):
+    for url in urls:
+        file_names, dir_prefix = get_file_metadata(url)
+        get_files(file_names, dir_prefix, 'data/')
 
 if __name__ == '__main__':
-    file_names = get_file_metadata('https://www.quandl.com/api/v3/databases/NVCA/codes')
+    urls = ['https://www.quandl.com/api/v3/databases/NVCA/codes',
+'https://www.quandl.com/api/v3/databases/RENCAP/codes',
+'https://www.quandl.com/api/v3/databases/CVR/codes',
+'https://www.quandl.com/api/v3/databases/COOLEY/codes']
 
-    get_files(file_names,'data1')
+    quandl_data(urls)
