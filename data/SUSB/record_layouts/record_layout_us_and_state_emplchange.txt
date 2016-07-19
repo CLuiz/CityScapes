@@ -1,0 +1,97 @@
+Statistics of U.S. Businesses
+Record Layout- 2008+
+EMPLOYMENT CHANGE DATA - United States & States                                
+
+               		Data  
+Name          		Type    Description
+
+STATE   	   	C       Geographic Area Code
+				  U.S. = 00
+          	                  FIPS State 2-digit codes
+
+NAICS    	        C       Industry Code 
+			          6-digit, North American Industry Classification System (NAICS)
+                             
+ENTRSIZE		C	Enterprise Employment Size Code
+
+INIT_ESTB		N	Number of Initial Year Establishments
+
+INIT_EMPL		N	Initial Year Employment with Noise
+
+INIT_EMPLFL_N		C       Initial Year Employment Noise Flag 
+			
+        			G       Low noise applied to cell value (0 to < 2%)
+        			H       Medium noise applied to cell value (2 to < 5%)
+        			D       Data withheld and value set to 0 to avoid disclosing data for
+					individual businesses; data are included in higher level totals. 
+        			S       Data withheld and value set to 0 to avoise releasing information that does
+					not meet publication standards; data are included in higher level totals.
+
+INIT_EMPFL_R		C       Initial Year Employment Range Flag / Data Suppression Flag
+
+                        	This denotes employment size class for data withheld to avoid disclosure (confidentiality) 
+                        	or withheld because data do not meet publication standards.
+ 
+                                A       0-19
+                                B       20-99
+                                C       100-249
+                                E       250-499
+                                F       500-999
+                                G       1,000-2,499
+                                H       2,500-4,999
+                                I       5,000-9,999
+                                J       10,000-24,999
+                                K       25,000-49,999
+                                L       50,000-99,999
+                                M       100,000 or More
+
+NETCHG_ESTB 		N	Change in Establishments
+
+NETCHG_EMPL   		N	Change in Employment
+
+NETCHG_EMPLFL_N 	C	Net Change Noise Flag (G,H,D,S... see INIT_EMPLFL_N)
+                                                               
+BIRTHS_ESTB 		N	Number of Establishment Births
+
+BIRTHS_EMPL		N	Establishment Births Employment with Noise
+	
+BIRTHS_EMPLFL_N		C 	Establishment Births Noise Flag (G,H,D,S... see INIT_EMPLFL_N)                                                            
+
+DEATHS_ESTB 		N	Number of Establishment Deaths
+
+DEATHS_EMPL 		N	Establishment Deaths Employment with Noise
+
+DEATHS_EMPLFL_N 	C	Establishment Deaths Noise Flag (G,H,D,S... see INIT_EMPLFL_N)
+                                                             
+EXP_ESTB		N	Number of Establishment Expansions
+
+EXP_EMPL 		N	Establishment Expansions Change in Employment with Noise
+
+EXP_EMPLFL_N  		C  	Establishment Expansions Noise Flag (G,H,D,S... see INIT_EMPLFL_N)                                                                    
+
+CONTR_ESTB 		N	Number of Establishment Contractions
+
+CONTR_EMPL 		N	Establishment Contractions Change in Employment with Noise
+
+CONTR_EMPLFL_N 		C       Establishment Contractions Noise Flag (G,H,D,S... see INIT_EMPLFL_N)                                                        
+
+PCTCHG_ESTB  		N       Percent Change Establishments                                                                                                 
+
+PCTCHG_EMPL  		N   	Percent Change in Employment                                                                                                     
+
+PCTCHG_BIRTHS_EMPL   	N 	Percent Change in Employment Due to Births                                                                                             
+
+PCTCHG_DEATHS_EMPL  	N 	Percent change in Employment Due to Deaths                                                                                                
+
+PCTCHG_BIRTHS_EXP_EMPL 	N	Percent change in Employment Due to Births & Expansions	                                                                                             
+
+PCTCGH_DEATHS_CONTR_EMPLN  	Percent change in Employment Due to Deaths & Contractions                      
+
+STATEDSCR		C       State Description
+
+NAICSDSCR		C       NAICS Industry Description
+
+ENTRSIZEDSCR		C       Enterprise Employment Size Description
+
+
+

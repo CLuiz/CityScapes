@@ -1,0 +1,335 @@
+1988-2002 Statistics of U.S. Businesses comma-delimited files
+
+  MSA
+  CODE  MSA DESCRIPTION
+  0040  Abilene, TX
+  0080  Akron, OH
+  0120  Albany, GA
+  0160  Albany--Schenectady--Troy, NY
+  0200  Albuquerque, NM
+  0220  Alexandria, LA
+  0240  Allentown--Bethlehem--Easton, PA
+  0280  Altoona, PA
+  0320  Amarillo, TX
+  0380  Anchorage, AK
+  0440  Ann Arbor, MI
+  0450  Anniston, AL
+  0460  Appleton--Oshkosh--Neenah, WI
+  0480  Asheville, NC
+  0500  Athens, GA
+  0520  Atlanta, GA
+  0560  Atlantic--Cape May, NJ
+  0580  Auburn--Opelika, AL
+  0600  Augusta--Aiken, GA--SC
+  0640  Austin--San Marcos, TX
+  0680  Bakersfield, CA
+  0720  Baltimore, MD
+  0730  Bangor, ME
+  0740  Barnstable--Yarmouth, MA
+  0760  Baton Rouge, LA
+  0840  Beaumont--Port Arthur, TX
+  0860  Bellingham, WA
+  0870  Benton Harbor, MI
+  0875  Bergen--Passaic, NJ
+  0880  Billings, MT
+  0920  Biloxi--Gulfport--Pascagoula, MS
+  0960  Binghamton, NY
+  1000  Birmingham, AL
+  1010  Bismarck, ND
+  1020  Bloomington, IN
+  1040  Bloomington--Normal, IL
+  1080  Boise City, ID
+  1120  Boston, MA--NH
+  1125  Boulder--Longmont, CO
+  1145  Brazoria, TX
+  1150  Bremerton, WA
+  1160  Bridgeport, CT
+  1200  Brockton, MA
+  1240  Brownsville--Harlingen--San Benito, TX
+  1260  Bryan--College Station, TX
+  1280  Buffalo--Niagara Falls, NY
+  1305  Burlington, VT
+  1320  Canton--Massillon, OH
+  1350  Casper, WY
+  1360  Cedar Rapids, IA
+  1400  Champaign--Urbana, IL
+  1440  Charleston--North Charleston, SC
+  1480  Charleston, WV
+  1520  Charlotte--Gastonia--Rock Hill, NC--SC
+  1540  Charlottesville, VA
+  1560  Chattanooga, TN--GA
+  1580  Cheyenne, WY
+  1600  Chicago, IL
+  1620  Chico--Paradise, CA
+  1640  Cincinnati, OH--KY--IN
+  1660  Clarksville--Hopkinsville, TN--KY
+  1680  Cleveland--Lorain--Elyria, OH
+  1720  Colorado Springs, CO
+  1740  Columbia, MO
+  1760  Columbia, SC
+  1800  Columbus, GA--AL
+  1840  Columbus, OH
+  1880  Corpus Christi, TX
+  1890  Corvallis, OR
+  1900  Cumberland, MD--WV
+  1920  Dallas, TX
+  1930  Danbury, CT
+  1950  Danville, VA
+  1960  Davenport--Moline--Rock Island, IA--IL
+  2000  Dayton--Springfield, OH
+  2020  Daytona Beach, FL
+  2030  Decatur, AL
+  2040  Decatur, IL
+  2080  Denver, CO
+  2120  Des Moines, IA
+  2160  Detroit, MI
+  2180  Dothan, AL
+  2190  Dover, DE
+  2200  Dubuque, IA
+  2240  Duluth--Superior, MN--WI
+  2281  Dutchess County, NY
+  2290  Eau Claire, WI
+  2320  El Paso, TX
+  2330  Elkhart--Goshen, IN
+  2335  Elmira, NY
+  2340  Enid, OK
+  2360  Erie, PA
+  2400  Eugene--Springfield, OR
+  2440  Evansville--Henderson, IN--KY
+  2520  Fargo--Moorhead, ND--MN
+  2560  Fayetteville, NC
+  2580  Fayetteville--Springdale--Rogers, AR
+  2600  Fitchburg--Leominster, MA
+  2620  Flagstaff, UT--AZ
+  2640  Flint, MI
+  2650  Florence, AL
+  2655  Florence, SC
+  2670  Fort Collins--Loveland, CO
+  2680  Fort Lauderdale, FL
+  2700  Fort Myers--Cape Coral, FL
+  2710  Fort Pierce--Port St. Lucie, FL
+  2720  Fort Smith, AR--OK
+  2750  Fort Walton Beach, FL
+  2760  Fort Wayne, IN
+  2800  Fort Worth--Arlington, TX
+  2840  Fresno, CA
+  2880  Gadsden, AL
+  2900  Gainesville, FL
+  2920  Galveston--Texas City, TX
+  2960  Gary, IN
+  2975  Glens Falls, NY
+  2980  Goldsboro, NC
+  2985  Grand Forks, ND--MN
+  2995  Grand Junction, CO
+  3000  Grand Rapids--Muskegon--Holland, MI
+  3040  Great Falls, MT
+  3060  Greeley, CO
+  3080  Green Bay, WI
+  3120  Greensboro--Winston-Salem--High Point, NC
+  3150  Greenville, NC
+  3160  Greenville--Spartanburg--Anderson, SC
+  3180  Hagerstown, MD
+  3200  Hamilton--Middletown, OH
+  3240  Harrisburg--Lebanon--Carlisle, PA
+  3280  Hartford, CT
+  3285  Hattiesburg, MS
+  3290  Hickory--Morganton--Lenoir, NC
+  3320  Honolulu, HI
+  3350  Houma, LA
+  3360  Houston, TX
+  3400  Huntington--Ashland, WV--KY--OH
+  3440  Huntsville, AL
+  3480  Indianapolis, IN
+  3500  Iowa City, IA
+  3520  Jackson, MI
+  3560  Jackson, MS
+  3580  Jackson, TN
+  3600  Jacksonville, FL
+  3605  Jacksonville, NC
+  3610  Jamestown, NY
+  3620  Janesville--Beloit, WI
+  3640  Jersey City, NJ
+  3660  Johnson City--Kingsport--Bristol, TN--VA
+  3680  Johnstown, PA
+  3700  Jonesboro, AR
+  3710  Joplin, MO
+  3720  Kalamazoo--Battle Creek, MI
+  3740  Kankakee, IL
+  3760  Kansas City, MO--KS
+  3800  Kenosha, WI
+  3810  Killeen--Temple, TX
+  3840  Knoxville, TN
+  3850  Kokomo, IN
+  3870  La Crosse, WI--MN
+  3880  Lafayette, LA
+  3920  Lafayette, IN
+  3960  Lake Charles, LA
+  3980  Lakeland--Winter Haven, FL
+  4000  Lancaster, PA
+  4040  Lansing--East Lansing, MI
+  4080  Laredo, TX
+  4100  Las Cruces, NM
+  4120  Las Vegas, NV--AZ
+  4150  Lawrence, KS
+  4160  Lawrence, MA--NH
+  4200  Lawton, OK
+  4240  Lewiston--Auburn, ME
+  4280  Lexington, KY
+  4320  Lima, OH
+  4360  Lincoln, NE
+  4400  Little Rock--North Little Rock, AR
+  4420  Longview--Marshall, TX
+  4480  Los Angeles--Long Beach, CA
+  4520  Louisville, KY--IN
+  4560  Lowell, MA--NH
+  4600  Lubbock, TX
+  4640  Lynchburg, VA
+  4680  Macon, GA
+  4720  Madison, WI
+  4760  Manchester, NH
+  4800  Mansfield, OH
+  4880  McAllen--Edinburg--Mission, TX
+  4890  Medford--Ashland, OR
+  4900  Melbourne--Titusville--Palm Bay, FL
+  4920  Memphis, TN--AR--MS
+  4940  Merced, CA
+  5000  Miami, FL
+  5015  Middlesex--Somerset--Hunterdon, NJ
+  5080  Milwaukee--Waukesha, WI
+  5120  Minneapolis--St. Paul, MN--WI
+  5140  Missoula, MT
+  5160  Mobile, AL
+  5170  Modesto, CA
+  5190  Monmouth--Ocean, NJ
+  5200  Monroe, LA
+  5240  Montgomery, AL
+  5280  Muncie, IN
+  5330  Myrtle Beach, SC
+  5345  Naples, FL
+  5350  Nashua, NH
+  5360  Nashville, TN
+  5380  Nassau--Suffolk, NY
+  5400  New Bedford, MA
+  5480  New Haven--Meriden, CT
+  5520  New London--Norwich, CT--RI
+  5560  New Orleans, LA
+  5600  New York, NY
+  5640  Newark, NJ
+  5660  Newburgh, NY--PA
+  5720  Norfolk--Virginia Beach--Newport News, VA--NC
+  5775  Oakland, CA
+  5790  Ocala, FL
+  5800  Odessa--Midland, TX
+  5880  Oklahoma City, OK
+  5910  Olympia, WA
+  5920  Omaha, NE--IA
+  5945  Orange County, CA
+  5960  Orlando, FL
+  5990  Owensboro, KY
+  6015  Panama City, FL
+  6020  Parkersburg--Marietta, WV--OH
+  6080  Pensacola, FL
+  6120  Peoria--Pekin, IL
+  6160  Philadelphia, PA--NJ
+  6200  Phoenix--Mesa, AZ
+  6240  Pine Bluff, AR
+  6280  Pittsburgh, PA
+  6320  Pittsfield, MA
+  6340  Pocatello, ID
+  6400  Portland, ME
+  6440  Portland--Vancouver, OR--WA
+  6450  Portsmouth--Rochester, NH--ME
+  6480  Providence--Fall River--Warwick, RI--MA
+  6520  Provo--Orem, UT
+  6560  Pueblo, CO
+  6580  Punta Gorda, FL
+  6600  Racine, WI
+  6640  Raleigh--Durham--Chapel Hill, NC
+  6660  Rapid City, SD
+  6680  Reading, PA
+  6690  Redding, CA
+  6720  Reno, NV
+  6740  Richland--Kennewick--Pasco, WA
+  6760  Richmond--Petersburg, VA
+  6780  Riverside--San Bernardino, CA
+  6800  Roanoke, VA
+  6820  Rochester, MN
+  6840  Rochester, NY
+  6880  Rockford, IL
+  6895  Rocky Mount, NC
+  6920  Sacramento, CA
+  6960  Saginaw--Bay City--Midland, MI
+  6980  St. Cloud, MN
+  7000  St. Joseph, MO
+  7040  St. Louis, MO--IL
+  7080  Salem, OR
+  7120  Salinas, CA
+  7160  Salt Lake City--Ogden, UT
+  7200  San Angelo, TX
+  7240  San Antonio, TX
+  7320  San Diego, CA
+  7360  San Francisco, CA
+  7400  San Jose, CA
+  7460  San Luis Obispo--Atascadero--Paso Robles, CA
+  7480  Santa Barbara--Santa Maria--Lompoc, CA
+  7485  Santa Cruz--Watsonville, CA
+  7490  Santa Fe, NM
+  7500  Santa Rosa, CA
+  7510  Sarasota--Bradenton, FL
+  7520  Savannah, GA
+  7560  Scranton--Wilkes-Barre--Hazleton, PA
+  7600  Seattle--Bellevue--Everett, WA
+  7610  Sharon, PA
+  7620  Sheboygan, WI
+  7640  Sherman--Denison, TX
+  7680  Shreveport--Bossier City, LA
+  7720  Sioux City, IA--NE
+  7760  Sioux Falls, SD
+  7800  South Bend, IN
+  7840  Spokane, WA
+  7880  Springfield, IL
+  7920  Springfield, MO
+  8000  Springfield, MA
+  8040  Stamford--Norwalk, CT
+  8050  State College, PA
+  8080  Steubenville--Weirton, OH--WV
+  8120  Stockton--Lodi, CA
+  8140  Sumter, SC
+  8160  Syracuse, NY
+  8200  Tacoma, WA
+  8240  Tallahassee, FL
+  8280  Tampa--St. Petersburg--Clearwater, FL
+  8320  Terre Haute, IN
+  8360  Texarkana, TX--Texarkana, AR
+  8400  Toledo, OH
+  8440  Topeka, KS
+  8480  Trenton, NJ
+  8520  Tucson, AZ
+  8560  Tulsa, OK
+  8600  Tuscaloosa, AL
+  8640  Tyler, TX
+  8680  Utica--Rome, NY
+  8720  Vallejo--Fairfield--Napa, CA
+  8735  Ventura, CA
+  8750  Victoria, TX
+  8760  Vineland--Millville--Bridgeton, NJ
+  8780  Visalia--Tulare--Porterville, CA
+  8800  Waco, TX
+  8840  Washington, DC--MD--VA--WV
+  8880  Waterbury, CT
+  8920  Waterloo--Cedar Falls, IA
+  8940  Wausau, WI
+  8960  West Palm Beach--Boca Raton, FL
+  9000  Wheeling, WV--OH
+  9040  Wichita, KS
+  9080  Wichita Falls, TX
+  9140  Williamsport, PA
+  9160  Wilmington--Newark, DE--MD
+  9200  Wilmington, NC
+  9240  Worcester, MA--CT
+  9260  Yakima, WA
+  9270  Yolo, CA
+  9280  York, PA
+  9320  Youngstown--Warren, OH
+  9340  Yuba City, CA
+  9360  Yuma, AZ
