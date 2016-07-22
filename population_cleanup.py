@@ -21,3 +21,4 @@ rj_df.set_index(['city'], inplace = True)
 
 new_df = pd.concat([df, rj_df], axis=1)
 meetup_df = new_df[new_df['Pop'].notnull()]
+cities = list(meetup_df.index)
