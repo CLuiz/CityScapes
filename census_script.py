@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import re
 
 
-
+# fix me
 
 url = 'http://www.census.gov/data/datasets/1997/econ/susb/1997-susb.html'
 
@@ -13,7 +13,7 @@ soup = BeautifulSoup(doc)
 
 print soup.prettify()
 
-sooup_links = soup.findAll('a', href=re.compile('^www2.census.gov/programs-surveys/susb/datasets/1997'))
+soup_links = soup.findAll('a', href=re.compile('^www2.census.gov/programs-surveys/susb/datasets/1997'))
 
 links = re.findall("www2.census.gov/programs-surveys/susb/datasets/1997", str(doc))
 
