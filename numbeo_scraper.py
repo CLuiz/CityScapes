@@ -24,6 +24,9 @@ def clean_up(soup):
             data.append(tag.text)
     return data
 
+    # This could be the missing piece:
+#df = pd.DataFrame([sub.split(",") for sub in l])
+
 url_prefix = 'http://www.numbeo.com/cost-of-living/region_rankings.jsp?title='
 url_suffix = '&region=021'
 year_list = ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016']
