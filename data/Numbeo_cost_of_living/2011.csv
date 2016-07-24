@@ -1,0 +1,41 @@
+,rank,city,cost_of_living_index,rent_index,cost_of_living_plus_rent_index,groceries_index,restaurant_price_index,local_purchasing_power_index
+0,,"Vancouver, Canada",103.16,66.08,89.85,109.96,85.09,85.15
+1,,"Fort McMurray, Canada",102.91,54.44,85.51,101.01,76.76,126.02
+2,,"Calgary, Canada",102.75,46.15,82.43,107.54,80.25,126.95
+3,,"New York, NY, United States",100.00,100.00,100.00,100.00,100.00,100.00
+4,,"Thunder Bay, Canada",97.70,46.67,79.37,105.17,54.56,101.57
+5,,"Edmonton, Canada",95.67,37.21,74.68,107.07,70.83,83.05
+6,,"Halifax, Canada",95.57,37.10,74.57,106.06,79.00,89.11
+7,,"Seattle, WA, United States",93.73,45.82,76.52,94.13,85.61,124.94
+8,,"Waterloo, Canada",93.40,30.43,70.79,88.71,79.15,98.99
+9,,"Phoenix, AZ, United States",91.65,36.34,71.79,75.61,67.81,112.94
+10,,"Toronto, Canada",91.63,53.37,77.89,101.66,65.93,122.74
+11,,"Winnipeg, Canada",90.21,31.26,69.04,101.20,62.15,89.55
+12,,"Hamilton, Canada",89.84,29.71,68.25,88.86,72.45,103.13
+13,,"Boston, MA, United States",89.83,60.84,79.42,88.72,79.32,128.89
+14,,"Los Angeles, CA, United States",89.20,63.13,79.84,80.80,68.20,130.42
+15,,"Tampa, FL, United States",89.07,34.99,69.65,61.16,62.24,104.76
+16,,"Montreal, Canada",89.07,40.69,71.70,95.42,74.77,107.26
+17,,"San Francisco, CA, United States",88.08,95.78,90.84,82.76,72.72,107.10
+18,,"Miami, FL, United States",87.89,61.98,78.58,68.62,79.00,85.57
+19,,"San Diego, CA, United States",86.57,65.10,78.86,78.49,95.50,102.82
+20,,"Boise, ID, United States",86.35,28.67,65.63,71.95,56.72,120.45
+21,,"Dallas, TX, United States",85.93,38.28,68.82,77.57,59.02,127.56
+22,,"Minneapolis, MN, United States",83.47,44.99,69.65,87.78,78.24,123.20
+23,,"Atlanta, GA, United States",82.51,37.83,66.46,68.34,66.19,103.02
+24,,"San Jose, CA, United States",81.88,65.10,75.86,84.01,59.31,125.59
+25,,"Regina, Canada",81.58,37.03,65.58,96.88,73.42,114.32
+26,,"Ottawa, Canada",80.54,40.45,66.15,82.33,68.72,136.97
+27,,"New Orleans, LA, United States",79.60,47.27,67.99,59.75,54.65,70.89
+28,,"Louisville, KY, United States",79.34,21.25,58.48,73.93,53.10,95.44
+29,,"Memphis, TN, United States",79.09,36.91,63.94,64.89,55.83,92.99
+30,,"Philadelphia, PA, United States",78.55,61.06,72.27,73.48,66.79,112.19
+31,,"Milwaukee, WI, United States",78.19,36.14,63.09,72.38,73.61,103.27
+32,,"Hartford, CT, United States",76.99,57.12,69.86,102.51,55.41,116.07
+33,,"San Antonio, TX, United States",74.37,30.36,58.57,67.31,76.49,117.67
+34,,"Kansas City, MO, United States",74.37,42.92,63.08,67.47,57.98,96.75
+35,,"Cleveland, OH, United States",74.06,41.12,62.23,65.82,64.63,119.43
+36,,"Austin, TX, United States",73.44,46.62,63.81,73.61,61.23,130.52
+37,,"Detroit, MI, United States",72.40,32.91,58.22,67.68,59.06,98.93
+38,,"Fresno, CA, United States",71.61,30.87,56.98,70.21,56.64,99.61
+39,,"Albuquerque, NM, United States",70.35,35.54,57.85,75.64,58.29,116.79
