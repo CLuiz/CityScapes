@@ -1,0 +1,42 @@
+
+Rank City Per Capita Sign Ups
+1 Palo Alto 1.66 110.922
+2 San Francisco 0.92 786.874
+3 Cambridge 0.85 93.610
+4 Santa Monica 0.74 68.386
+5 Boulder 0.44 46.1 53
+6 Sunnyvale 0.33 49.307
+7 Washington 0.30 195.267
+8 Santa Clara 0.27 33.399
+9 Atlanta 0.25 1 12.324
+10 Seattle 0.24 161.510
+11 Boston 0.23 152.440
+12 Mountain View 0.18 1 50.658
+13 Ann Arbor 0.17 19.562
+14 Austin 0.15 132.665
+15 Bellewe 0.13 18.401
+16 Irvine 0.13 31.980
+17 Orlando 0.13 33.317
+18 Portland 0.12 76.367
+19 Minneapolis 0.12 49.084
+20 Denver 0.11 72.058
+21 New York 0.11 914.132
+22 Pittsburgh 0.08 25.221
+23 Chicago 0.08 212.482
+24 Raleigh 0.07 32.056
+25 Miami 0.07 29.306
+26 Saint Louis 0.07 21.344
+27 San Jose 0.07 66.727
+28 Oakland 0.06 23.1 01
+29 Dallas 0.05 59.851
+30 Baltimore 0.05 28.416
+31 Philadelphia 0.04 66.754
+32 San Diego 0.04 52.405
+33 Los Angeles 0.04 144.227
+34 Charlotte 0.03 28.263
+35 Las Vegas 0.03 21.392
+36 Nashville 0.03 21.690
+37 Detroit 0.03 19.329
+38 Brooklyn 0.02 57.214
+39 Phoenix 0.01 22.948
+40 Houston 0.01 31 .507

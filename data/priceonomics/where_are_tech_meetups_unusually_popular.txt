@@ -1,0 +1,23 @@
+Where Are Tech Meetups Unusually Popular?
+% of Slgnups for
+Rank City Tech Moetups
+1 Mountain View 59.7%
+2 Palo Alto 43.0%
+3 Sunnyvale 39.2%
+4 San Francisco 39.1%
+5 Cambridge 35.1%
+6 Santa Monica 28.1%
+7 Boulder 27.4%
+8 Detroit 26.1%
+9 Reston 24.9%
+10 Santa Clara 24.9%
+11 Durham 22.5%
+12 New York 21.9%
+13 Boston 21.3%
+14 Ann Arbor 20.6%
+15 Bellevue 19.4%
+16 Seattle 17.9%
+17 San Jose 17.8%
+18 Chicago 17.7%
+19 Brooklyn 17.2%
+20 Irvine 16.6%
