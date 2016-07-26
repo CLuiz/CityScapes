@@ -9,6 +9,9 @@ todo:
 --build url list from cities
 --use numbeo scraper functions to clean up
 --strip leading comma
+--send nearly created csv files to the data folder
+--turn this script into a function, then inot a bigees tus cite scraping object
+   that takes a url and returns a cleaned csv file
 -data:
 -transform city names to the appropriate form
 '''
@@ -19,8 +22,6 @@ url ='https://www.biggestuscities.com/city/denver-colorado'
 # response = requests.get(url)
 # soup = BeautifulSoup(response.content, 'lxml')
 soup = ns.get_pages(url)
-
-
 tabs =[]
 table = soup[0].findAll('table')
 
@@ -32,3 +33,22 @@ data =[t.replace("\n",",").strip() for t in tabs][-1].split(',,')[1:-1]
 file_name = url.split('/')[-1].replace('-', '_')
 
 pd.DataFrame(data).to_csv(file_name)
+
+# Scrape the top 100 cities education info:
+# above code works out of the box, just swap url
+
+# url = 'https://www.biggestuscities.com/demographics/us/education-college-graduates-by-top-100-city'
+
+data1 = [t.replace("\n",",").strip() for t in tabs][-1]
+d= d.split(' ')
+t = [item for item in d if item != '']
+t_done = [item.replace(',',' ')  for item in t]
+
+'''
+More urls to scrape:
+https://www.biggestuscities.com/demographics/us/people-foreign-born-by-top-100-city
+https://www.biggestuscities.com/demographics/us/population-density-by-top-100-city
+https://www.biggestuscities.com/demographics/us/income-per-household-by-top-100-city
+https://www.biggestuscities.com/demographics/us/business-retail-sales-per-capita-by-top-100-city
+https://www.biggestuscities.com/demographics/us/business-total-businesses-by-top-100-city
+'''
