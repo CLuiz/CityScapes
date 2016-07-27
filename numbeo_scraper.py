@@ -11,11 +11,7 @@ def get_pages(url):
     return soup_can
 
 def build_urls(year_list):
-    url_list = []
-    for year in year_list:
-        url = url_prefix + year + url_suffix
-        url_list.append(url)
-    return url_list
+    return [url_prefix + year + url_suffix for year in year_list]
 
 # integrate this next:
 def clean_up(soup):
@@ -24,6 +20,7 @@ def clean_up(soup):
     for t in tab:
         for tag in t.select('td'):
             data.append(tag.text)
+    # data = [tag.text for tag in t.select('td') for t in tab]
     return data
 
 def build_data_frames(zipped, chunk=8):
@@ -71,15 +68,14 @@ table_list =[]
 
 def main():
     urls = build_urls(year_list)
+    #soup_can = [get_pages(url) for url in urls]
     for url in urls:
         soup_can = get_pages(url)
-    for soup in soup_can:
-        table_list.append(clean_up(soup))
+    table_list = [clean_up(soup) for soup in soup_can]
     zipped = list(zip(year_list, table_list))
     df_dict = build_data_frames(zipped)
     columns= ['Rank','City','Cost of Living Index','Rent Index','Cost of Living Plus Rent Index','Groceries Index','Restaurant Price Index','Local Purchasing Power Index']
-    for k, v in df_dict.iteritems():
-        v.columns = fix_em(columns)
+    v.columns = [fix_em(columns) for k,v in df_dict.iteritems()]
     df_to_csv(df_dict)
 
 # TO DO
