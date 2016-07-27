@@ -71,13 +71,10 @@ table_list =[]
 
 def main():
     urls = build_urls(year_list)
-
     for url in urls:
         soup_can = get_pages(url)
-
     for soup in soup_can:
         table_list.append(clean_up(soup))
-
     zipped = list(zip(year_list, table_list))
     df_dict = build_data_frames(zipped)
     columns= ['Rank','City','Cost of Living Index','Rent Index','Cost of Living Plus Rent Index','Groceries Index','Restaurant Price Index','Local Purchasing Power Index']

@@ -1,16 +1,15 @@
 from __future__ import unicode_literals
-
 import requests
 import json
 import time
 import codecs
 import sys
 import os
+
 UTF8Writer = codecs.getwriter('utf8')
 sys.stdout = UTF8Writer(sys.stdout)
 
 def main():
-
         cities =[("Denver","CO"),("Boulder","CO")]
         api_key= os.environ['MEETUP_API_KEY']
 

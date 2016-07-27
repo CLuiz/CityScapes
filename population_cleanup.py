@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import get_bea_data as gbd
 
 
 df = pd.read_csv('data/1790-2010_MASTER.csv')
@@ -26,15 +27,8 @@ new_df = pd.concat([df, rj_df], axis=1)
 meetup_df = new_df[new_df['Pop'].notnull()]
 cities = list(meetup_df.index)
 
-# buruea of economic affiars clean and join
-bea_df = pd.read_csv('data/bea.csv', header=2)
-columns = bea_df.columns
-new_columns = [u'city', u'bea_state', u'bea_2009', u'bea_2010', u'bea_2011', u'bea_2012', u'bea_2013', u'bea_2014', u'bea_what_is_this _crap']
-bea_df.columns = new_columns
-#bea_df = bea_df[1:]
-bea_df['city'] = bea_df['bea_state'].apply(lambda x: x.split(',')[0])
-bea_df['city'] = bea_df['city'].apply(lambda x: x.lower().replace('-', '_').replace(' ', '_'))
-bea_df['bea_state'] = bea_df['bea_state'].apply(lambda x: x.split(',')[-1])
-bea_df.set_index('city', inplace=True)
-
+# bureau of economic affairs clean and join
+url = 'http://www.bea.gov/newsreleases/regional/gdp_metro/2015/xls/gdp_metro0915.xls'
+raw_bea = gbd.get_bea_data(url)
+bea_df = gbd.clean_me(raw_bea)
 next_df = pd.concat([new_df, bea_df], axis=0)

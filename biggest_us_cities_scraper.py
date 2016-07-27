@@ -10,8 +10,7 @@ todo:
 --use numbeo scraper functions to clean up
 --strip leading comma
 --send nearly created csv files to the data folder
---turn this script into a function, then inot a bigees tus cite scraping object
-   that takes a url and returns a cleaned csv file
+--turn this script into a function, then into a bigest us cities scraping object that takes a url and returns a cleaned csv file
 -data:
 -transform city names to the appropriate form
 '''
@@ -39,11 +38,18 @@ pd.DataFrame(data).to_csv(file_name)
 
 # url = 'https://www.biggestuscities.com/demographics/us/education-college-graduates-by-top-100-city'
 
-data1 = [t.replace("\n",",").strip() for t in tabs][-1]
-d= d.split(' ')
+d = [t.replace("\n",",").strip() for t in tabs][-1]
+d = d.split(' ')
 t = [item for item in d if item != '']
-t_done = [item.replace(',',' ')  for item in t]
+t_done = [item.replace(',',' ').strip()  for item in t]
 
+just_table = t_done[4:]
+chunks = [just_table[x:x+5] for x in xrange(0, len(just_table), 5)]
+df = pd.DataFrame(chunks)
+df.columns = ['rank', 'city', 'state', 'pct_college_grads']
+file_name = url.split('/')[-1].replace('-', '_')
+
+df.to_csv('file_name')
 '''
 More urls to scrape:
 https://www.biggestuscities.com/demographics/us/people-foreign-born-by-top-100-city
