@@ -31,9 +31,8 @@ def clean_top_100(tabs, skip_rows):
 
     bad_item_list = ['(adsbygoogle', '=', 'window.adsbygoogle', '||', '[]).push({', '});', 'San','District', 'Of', 'North', 'St.', 'City', 'New', 'Springs', 'Urban', 'Beach','Rouge', 'Los', 'El','Vista', 'County', 'Fort', 'Las', 'Christi', 'Ana']
 
-    for item in bad_item_list:
-        just_table.remove(item)
-
+    # for item in bad_item_list:
+    #     just_table.remove(item)
     just_table = [item for item in just_table if item not in bad_item_list if item]
     just_table = [item.replace('Francisco', 'san_francisco') for item in just_table]
     just_table = [item.replace('Angeles', 'los_angeles') for item in just_table]
