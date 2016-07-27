@@ -5,6 +5,9 @@ import numbeo_scraper as ns
 
 '''
 todo:
+delete this?
+
+combine with get_grad_rates
 -code:
 --build url list from cities
 --use numbeo scraper functions to clean up

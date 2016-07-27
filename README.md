@@ -1,4 +1,4 @@
-# capstone
+# CityScapes
 
 Using economic data, predict future areas of high-tech growth.
 
@@ -10,4 +10,4 @@ I have long pondered the fate of Cleveland.  The remnants of past glory surround
 
 Cleveland is now undergoing major changes effected to save the city.  It is trying to attract millennials and educated creatives to carve a place for itself in our digital world.  But what is required to change the fate of a city so long in decline?  
 
-Fellow rustbelt city Pittsburgh has made soem dramatic changes over the past twenty years, but 
+Fellow rustbelt city Pittsburgh has made some dramatic changes over the past twenty years, but still struggles to compete with the US's second tech centers.

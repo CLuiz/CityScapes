@@ -18,7 +18,7 @@ def get_grad_data(url, cols, skip_rows=5):
         for tag in table:
             tabs.append(tag.text)
         clean_table = clean_top_100(tabs, skip_rows)
-        return process_df(clean_table, file_path)
+        return process_df(clean_table, file_path, cols)
     else:
         return pd.read_csv(file_path)
 
@@ -54,7 +54,7 @@ def clean_top_100(tabs, skip_rows):
 
     return just_table
 
-def process_df(clean_table, file_path):
+def process_df(clean_table, file_path, cols):
     chunks = [clean_table[x:x+4] for x in xrange(0, len(clean_table), 4)]
     df = pd.DataFrame(chunks)
     df.columns = cols
