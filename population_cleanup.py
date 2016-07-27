@@ -18,7 +18,7 @@ def get_pop_data(file_path='data/1790-2010_MASTER.csv'):
 def get_rj_data(file_path='data/rj_metrics.txt'):
     rj_df = pd.read_table(file_path)
     rj_df['state'] = (rj_df['City'].apply(lambda x: x.split(',')[-1]))
-    rj_df['city'] = rj_df['City'].apply(lambda x: x.split(',')[0])
+    rj_df['city'] = rj_df['City'].apply(lambda x: x.lower().split(',')[0])
     rj_df.drop('City', axis =1, inplace=True)
     rj_df.set_index(['city'], inplace = True)
     return rj_df

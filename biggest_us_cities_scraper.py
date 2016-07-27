@@ -27,9 +27,9 @@ soup = ns.get_pages(url)
 tabs =[]
 table = soup[0].findAll('table')
 
-for tag in table:
-    tabs.append(tag.text)
-
+# for tag in table:
+#     tabs.append(tag.text)
+tabs =[tag.text for tag in table]
 
 data =[t.replace("\n",",").strip() for t in tabs][-1].split(',,')[1:-1]
 file_name = url.split('/')[-1].replace('-', '_')
@@ -53,11 +53,3 @@ df.columns = ['rank', 'city', 'state', 'pct_college_grads']
 file_name = url.split('/')[-1].replace('-', '_')
 
 df.to_csv('file_name')
-'''
-More urls to scrape:
-https://www.biggestuscities.com/demographics/us/people-foreign-born-by-top-100-city
-https://www.biggestuscities.com/demographics/us/population-density-by-top-100-city
-https://www.biggestuscities.com/demographics/us/income-per-household-by-top-100-city
-https://www.biggestuscities.com/demographics/us/business-retail-sales-per-capita-by-top-100-city
-https://www.biggestuscities.com/demographics/us/business-total-businesses-by-top-100-city
-'''

@@ -25,7 +25,7 @@ def clean_me(bea_df):
     '''
     columns = bea_df.columns
     new_columns = [u'city', u'bea_state', u'bea_2009', u'bea_2010', u'bea_2011', u'bea_2012',
-           u'bea_2013', u'bea_2014', u'bea_what_is_this _crap']
+           u'bea_2013', u'bea_2014', u'bea_what_is_this_crap']
     bea_df.columns = new_columns
     bea_df['city'] = bea_df['bea_state'].apply(lambda x: x.split(',')[0])
     bea_df['city'] = bea_df['city'].apply(lambda x: x.lower().replace('-', '_').replace(' ', '_'))

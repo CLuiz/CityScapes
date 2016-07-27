@@ -33,6 +33,7 @@ def clean_top_100(tabs, skip_rows):
 
     # for item in bad_item_list:
     #     just_table.remove(item)
+    # df.replace(dict_of_changes)
     just_table = [item for item in just_table if item not in bad_item_list if item]
     just_table = [item.replace('Francisco', 'san_francisco') for item in just_table]
     just_table = [item.replace('Angeles', 'los_angeles') for item in just_table]
@@ -58,6 +59,7 @@ def process_df(clean_table, file_path, cols):
     df = pd.DataFrame(chunks)
     df.columns = cols
     df = df.drop('rank', axis=1)
+    df['city']= df['city'].apply(lambda x: x.lower())
     df.set_index('city', inplace=True)
     df_csv = df.copy()
     df_csv.to_csv(file_path)
