@@ -2,3 +2,4 @@
 *.ipynb_checkpoints
 quandl_api.ipynb
 data/*
+city_test_script.py
