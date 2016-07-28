@@ -68,23 +68,26 @@ def process_df(clean_table, file_path, cols):
 def get_city_2011_2015(url_suffix):
     url_prefix = 'https://www.biggestuscities.com/city/'
     url = url_prefix + url_suffix
-    path = os.getcwd()+'/data/biggestuscities'
+    path = os.getcwd()+'/data/biggestuscities/cities'
     file_name = url.split('/')[-1].replace('-', '_')
     file_path = '{}/{}.csv'.format(path, file_name)
 
     if not os.path.exists(path):
         os.makedirs(path)
     if not os.path.isfile(file_path):
-        soup = ns.get_pages(url)
-        table = soup[0].findAll('table')
-        tabs =[tag.text for tag in table]
-        data =[t.replace("\n",",").strip() for t in tabs][-1].split(',,')[1:-1]
-        data = [item[1:].split(',') for item in data if item]
-        dd= pd.DataFrame(data)[1:6]
-        dd['pop']=dd[1]+dd[2]
-        da =pd.DataFrame(zip(dd[0], dd['pop']))
-        done = da.T
-        pd.DataFrame(done).to_csv(file_path)
+        doc=requests.get(url).text
+        done = 'I brokeded it'
+        if doc != 'Not Found!':
+            soup = BeautifulSoup(doc, 'lxml')
+            table = soup.findAll('table')
+            tabs =[tag.text for tag in table]
+            data =[t.replace("\n",",").strip() for t in tabs][-1].split(',,')[1:-1]
+            data = [item[1:].split(',') for item in data if item]
+            dd= pd.DataFrame(data)[1:6]
+            dd['pop']=dd[1]+dd[2]
+            da =pd.DataFrame(zip(dd[0], dd['pop']))
+            done = da.T
+            done.to_csv(file_path)
     else:
          done = pd.read_csv(file_path)
     return done
@@ -94,3 +97,12 @@ if __name__ == '__main__':
     url = 'https://www.biggestuscities.com/demographics/us/people-foreign-born-by-top-100-city'
     cols = ['rank', 'city','state_fb','pct_foreign_born']
     df = get_grad_data(url, cols)
+
+    df1 = pd.read_csv('data/biggestuscities/business_retail_sales_per_capita_by_top_100_city.csv')
+    df1['city']=df1['city'].apply(lambda x: x.replace('_', '-'))
+    df1['state_rs']=df1['state_rs'].apply(lambda x: x.replace('_', '-'))
+    df1['combo'] = df1['city']+'-'+df1['state_rs']
+    city_list = list(df1['combo'])
+
+    for city in city_list:
+        get_city_2011_2015(city)
