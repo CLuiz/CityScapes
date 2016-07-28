@@ -1,4 +1,4 @@
-import buc_top_100_scraper as bs
+import big_us_cities_scraper as bs
 
 url = 'https://www.biggestuscities.com/demographics/us/education-college-graduates-by-top-100-city'
 

@@ -57,6 +57,19 @@ def fix_em(columns):
         fixed_columns.append(column)
     return fixed_columns
 
+def clean_up_df(df):
+    df['state'] = df['city'].apply(lambda x: x.split(',')[1].strip().lower().replace(' ', '_'))
+    df['city'] = df['city'].apply(lambda x: x.split(',')[0].lower().replace(' ', '_'))
+    del df['rank']
+    return df
+
+def merger(df1, df2):
+    df_merge = pd.merge(df1, df2,
+              left_on=['city', 'state'],
+              right_on=['city', 'state'],
+              how='outer')
+    return df_merge
+
 # global vars:
 
 url_prefix = 'http://www.numbeo.com/cost-of-living/region_rankings.jsp?title='
@@ -75,9 +88,36 @@ def main():
     zipped = list(zip(year_list, table_list))
     df_dict = build_data_frames(zipped)
     columns= ['Rank','City','Cost of Living Index','Rent Index','Cost of Living Plus Rent Index','Groceries Index','Restaurant Price Index','Local Purchasing Power Index']
-    v.columns = [fix_em(columns) for k,v in df_dict.iteritems()]
-    df_to_csv(df_dict)
+    columns = fix_em(columns)
+    for item in year_list:
+        columns= fix_em(['Rank','City','Cost of Living Index','Rent Index','Cost of Living Plus Rent Index', 'Groceries Index','Restaurant Price Index','Local Purchasing Power Index'])
+        first_cols = columns[:2]
+        first_cols.extend([column + '_{}'.format(item)for column in columns[2:]])
+        df_dict[item].columns = first_cols
 
+    df_2009 = clean_up_df(df_dict['2009'])
+    df_2010 = clean_up_df(df_dict['2010'])
+    df_2011 = clean_up_df(df_dict['2011'])
+    df_2012 = clean_up_df(df_dict['2012'])
+    df_2013 = clean_up_df(df_dict['2013'])
+    df_2014 = clean_up_df(df_dict['2014'])
+    df_2015 = clean_up_df(df_dict['2015'])
+    df_2016 = clean_up_df(df_dict['2016'])
+
+    df_list = [df_2009, df_2010,df_2011,df_2012, df_2013,df_2014,df_2015,df_2016]
+
+    merged1 = merger(df_list[0], df_list[1])
+    merged2 = merger(merged1, df_list[2])
+    merged3 = merger(merged2, df_list[3])
+    merged4 = merger(merged2, df_list[4])
+    merged5 = merger(merged2, df_list[5])
+    merged6 = merger(merged2, df_list[6])
+    merged7 = merger(merged2, df_list[7])
+    merged7.set_index('city', inplace=True)
+
+    value_list = ['canada', 'bermuda']
+    merged7 = merged7[~merged7['state'].isin(value_list)]
+    merged7.to_csv('data/Numbeo_cost_of_living/numbeo_complete.csv')
 # TO DO
     # pull headers out of soup object
 

@@ -8,17 +8,20 @@ import get_bea_data as gbd
 
 def get_pop_data(file_path='data/1790-2010_MASTER.csv'):
     df = pd.read_csv(file_path)
+    df['City'] = df['City'].apply(lambda x: x.lower().replace(' ', '_').replace('-','_'))
     df.set_index(['City'], inplace=True)
     df.sort_values(by=['2010'], ascending=False, inplace=True)
     df = df.head(100)
     df['STPLFIPS_2010']=df['STPLFIPS_2010'].astype(int)
-    df.drop(['Name_2010','Place Type','CityST', 'ID','LAT_BING', 'LON_BING'], axis=1, inplace=True)
+    df.drop(['Name_2010','Place Type','CityST', 'ID','LAT_BING', 'LON_BING', '1790','1800','1810', '1820', '1830', '1840', '1850', '1860', '1870', '1880', '1890', '1900', '1910', '1920',
+        '1930', '1940',], axis=1, inplace=True)
     return df
 
 def get_rj_data(file_path='data/rj_metrics.txt'):
     rj_df = pd.read_table(file_path)
     rj_df['state'] = (rj_df['City'].apply(lambda x: x.split(',')[-1]))
     rj_df['city'] = rj_df['City'].apply(lambda x: x.lower().split(',')[0])
+    rj_df['city'] = rj_df['city'].apply(lambda x: x.replace(' ', '_').replace('-','_'))
     rj_df.drop('City', axis =1, inplace=True)
     rj_df.set_index(['city'], inplace = True)
     return rj_df
