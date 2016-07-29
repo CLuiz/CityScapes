@@ -1,5 +1,7 @@
 import big_us_cities_scraper as bs
 
+# clean this up and build into function
+
 url = 'https://www.biggestuscities.com/demographics/us/education-college-graduates-by-top-100-city'
 
 cols = ['rank', 'city','state_bc','pct_college_grads_bc']

@@ -7,6 +7,10 @@ import os
 import get_bea_data as gbd
 
 def get_pop_data(file_path='data/1790-2010_MASTER.csv'):
+    '''
+    INPUT: File path to US census population csv file
+    OUTPUT: DataFrame of pop data of top 100 US cities 1790:2010
+    '''
     df = pd.read_csv(file_path)
     df['City'] = df['City'].apply(lambda x: x.lower().replace(' ', '_').replace('-','_'))
     df.set_index(['City'], inplace=True)
@@ -18,6 +22,10 @@ def get_pop_data(file_path='data/1790-2010_MASTER.csv'):
     return df
 
 def get_rj_data(file_path='data/rj_metrics.txt'):
+    '''
+    INPUT: File path to rj metrics text file
+    OUTPUT: Cleaned dataFrame of file
+    '''
     rj_df = pd.read_table(file_path)
     rj_df['state'] = (rj_df['City'].apply(lambda x: x.split(',')[-1]))
     rj_df['city'] = rj_df['City'].apply(lambda x: x.lower().split(',')[0])

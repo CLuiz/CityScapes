@@ -5,6 +5,10 @@ import numbeo_scraper as ns
 import os
 
 def get_grad_data(url, cols, skip_rows=5):
+    '''
+    INPUT: Target url to scrape, column names, and rows to skip (default=5)
+    OUTPUT: Dataframe of scraped info 
+    '''
     file_name = url.split('/')[-1].replace('-', '_')
     path = os.getcwd()+'/data/biggestuscities' #/{}'.format(file_name)
     file_path = '{}/{}.csv'.format(path, file_name)
@@ -31,9 +35,8 @@ def clean_top_100(tabs, skip_rows):
 
     bad_item_list = ['(adsbygoogle', '=', 'window.adsbygoogle', '||', '[]).push({', '});', 'San','District', 'Of', 'North', 'St.', 'City', 'New', 'Springs', 'Urban', 'Beach','Rouge', 'Los', 'El','Vista', 'County', 'Fort', 'Las', 'Christi', 'Ana']
 
-    # for item in bad_item_list:
-    #     just_table.remove(item)
-    # df.replace(dict_of_changes)
+    # do this with a dictionary
+
     just_table = [item for item in just_table if item not in bad_item_list if item]
     just_table = [item.replace('Francisco', 'san_francisco') for item in just_table]
     just_table = [item.replace('Angeles', 'los_angeles') for item in just_table]

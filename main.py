@@ -7,6 +7,7 @@ import numbeo_scraper as ns
 import get_bea_data as gbd
 import population_cleanup as pc
 import recent_pop_cleanup as rpc
+import glob
 
 
 # read in population (1790 - 2010) and rj metrics meetup info (2013-2014) and merge df's
@@ -68,10 +69,10 @@ def merger(df1, df2):
 merged1 = merger(df_list[0], df_list[1])
 merged2 = merger(merged1, df_list[2])
 merged3 = merger(merged2, df_list[3])
-merged4 = merger(merged2, df_list[4])
-merged5 = merger(merged2, df_list[5])
-merged6 = merger(merged2, df_list[6])
-merged7 = merger(merged2, df_list[7])
+merged4 = merger(merged3, df_list[4])
+merged5 = merger(merged4, df_list[5])
+merged6 = merger(merged5, df_list[6])
+merged7 = merger(merged6, df_list[7])
 merged7.set_index('city', inplace=True)
 value_list = ['canada', 'bermuda']
 merged7 = merged7[~merged7['state'].isin(value_list)]
@@ -84,7 +85,7 @@ next_merged_df.set_index('city', inplace=True)
 # 18 data frames successfully merged!!!!
 
 globule = glob.glob('/Users/IXChris/Desktop/G/capstone/data/biggestuscities/cities/*.csv')
-pop_df = rcp.recent_pop_merger(globule)
+pop_df = rpc.recent_pop_merger(globule)
 
 next_merged_df.reset_index(inplace=True)
 pop_df.reset_index(inplace=True)

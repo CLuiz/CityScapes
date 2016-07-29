@@ -2,17 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-
-# fix me
+# build a function to pull all of these at once
 
 url = 'http://www.census.gov/data/datasets/1997/econ/susb/1997-susb.html'
-
 doc=requests.get(url).text
-
 soup = BeautifulSoup(doc)
-
 print soup.prettify()
-
 soup_links = soup.findAll('a', href=re.compile('^www2.census.gov/programs-surveys/susb/datasets/1997'))
 
 links = re.findall("www2.census.gov/programs-surveys/susb/datasets/1997", str(doc))

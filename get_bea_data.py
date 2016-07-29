@@ -38,7 +38,5 @@ def main():
     bea_df = get_bea_data(url)
     return clean_me(bea_df)
 
-
-
 if __name__ == '__main__':
     bea_df = main()

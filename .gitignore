@@ -3,3 +3,4 @@
 quandl_api.ipynb
 data/*
 city_test_script.py
+city_fix.py

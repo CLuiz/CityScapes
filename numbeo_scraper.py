@@ -5,27 +5,39 @@ import numpy as np
 import os
 
 def get_pages(url):
+    '''
+    INPUT: Target url for scraping with requests and bs4
+    OUTPUT: List of raw soup objects
+    '''
+    # check compatibility with main for list vs single url input and output
     doc=requests.get(url).text
     soup = BeautifulSoup(doc, 'lxml')
     soup_can.append(soup)
     return soup_can
 
 def build_urls(year_list):
+    '''
+    INPUT: List of years in form '20XX'
+    OUTPUT: Url's ready to feed into the get_pages function
+    '''
     return [url_prefix + year + url_suffix for year in year_list]
 
-# integrate this next:
 def clean_up(soup):
+    '''
+    INPUT: Fresh bs4 soup object
+    OUTPUT: Stripped data text of interest from soup object
+    '''
     data = []
     tab = soup.findAll('tbody')
     for t in tab:
         for tag in t.select('td'):
             data.append(tag.text)
-    # data = [tag.text for tag in t.select('td') for t in tab]
     return data
 
 def build_data_frames(zipped, chunk=8):
-    '''INPUT: Tuple of form (year, table)
-       OUTPUT: Dict in form of {year: DataFrame}
+    '''
+    INPUT: Tuple of form (year, table)
+    OUTPUT: Dict in form of {year: DataFrame}
     '''
     df_dict ={}
     for item in zipped:
@@ -35,8 +47,9 @@ def build_data_frames(zipped, chunk=8):
         #return dict of df's with years as keys
 
 def df_to_csv(dict_of_dataframes, target_directory_name='data', dir_prefix='Numbeo_cost_of_living'):
-    '''INPUT: Output of build_data_frames function
-       OUTPUT: Csv files of dataframes in ~/target_directory_name/dir_prefix/filename(default is year)
+    '''
+    INPUT: Output of build_data_frames function
+    OUTPUT: Csv files of dataframes in:     ~/target_directory_name/dir_prefix/filename(default is year)
     '''
     path = os.getcwd()+'/{}/{}/'.format(target_directory_name, dir_prefix)
 
@@ -48,8 +61,9 @@ def df_to_csv(dict_of_dataframes, target_directory_name='data', dir_prefix='Numb
             dict_of_dataframes[key].to_csv(file_path)
 
 def fix_em(columns):
-    '''INPUT: List of columns
-       OUTPUT: Fixed list of columns
+    '''
+    INPUT: List of columns
+    OUTPUT: Fixed list of columns
     '''
     fixed_columns =[]
     for column in columns:
@@ -58,12 +72,20 @@ def fix_em(columns):
     return fixed_columns
 
 def clean_up_df(df):
+    '''
+    INPUT: Dirty, dirty numbeo dataframe
+    OUTPUT: DataFrame with cleaned column text
+    '''
     df['state'] = df['city'].apply(lambda x: x.split(',')[1].strip().lower().replace(' ', '_'))
     df['city'] = df['city'].apply(lambda x: x.split(',')[0].lower().replace(' ', '_'))
     del df['rank']
     return df
 
 def merger(df1, df2):
+        '''
+        INPUT: Two will enter...
+        OUTPUT: One will leave...
+        '''
     df_merge = pd.merge(df1, df2,
               left_on=['city', 'state'],
               right_on=['city', 'state'],
@@ -80,8 +102,8 @@ table_list =[]
 
 
 def main():
+    # fix me, I'm fugly
     urls = build_urls(year_list)
-    #soup_can = [get_pages(url) for url in urls]
     for url in urls:
         soup_can = get_pages(url)
     table_list = [clean_up(soup) for soup in soup_can]
