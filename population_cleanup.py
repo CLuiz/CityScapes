@@ -13,6 +13,7 @@ def get_pop_data(file_path='data/1790-2010_MASTER.csv'):
     '''
     df = pd.read_csv(file_path)
     df['City'] = df['City'].apply(lambda x: x.lower().replace(' ', '_').replace('-','_'))
+    df['City'].replace({'new_york_city': 'new_york'}, inplace=True)
     df.set_index(['City'], inplace=True)
     df.sort_values(by=['2010'], ascending=False, inplace=True)
     df = df.head(100)

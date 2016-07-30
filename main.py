@@ -11,9 +11,9 @@ import glob
 
 
 # read in population (1790 - 2010) and rj metrics meetup info (2013-2014) and merge df's
-pop_df = pc.get_pop_data('data/1790-2010_MASTER.csv')
+census_pop_df = pc.get_pop_data('data/1790-2010_MASTER.csv')
 rj_df = pc.get_rj_data('data/rj_metrics.txt')
-new_df = pd.concat([pop_df, rj_df], axis=1)
+new_df = pd.concat([census_pop_df, rj_df], axis=1)
 
 # clean and join bureau of economic affairs info
 
@@ -91,3 +91,31 @@ next_merged_df.reset_index(inplace=True)
 pop_df.reset_index(inplace=True)
 
 master_merger_df = (pd.merge(next_merged_df, pop_df, left_on='city', right_on='city', how='outer'))
+master_merger_df['state_y'].fillna(master_merger_df['state_x'], inplace=True)
+master_merger_df['state_y'].fillna(master_merger_df['ST'], inplace=True)
+master_merger_df['state_y'].fillna(master_merger_df['bea_state'], inplace=True)
+master_merger_df['state'] = master_merger_df['state_y']
+
+cols = master_merger_df.columns
+cols= [str(col).lower() for col in cols]
+master_merger_df.columns = cols
+
+del master_merger_df['state_y']
+del master_merger_df['state_x']
+del master_merger_df['index']
+del master_merger_df['st']
+del master_merger_df['bea_state']
+
+# get ready for modelling!
+dense_test_df = master_merger_df[master_merger_df['2012'].notnull() ==True]
+'''
+lets cluster on only data from 2013!!!
+'''
+# = master_merger_df[master_merger_df['pop'].notnull()]
+cols = [u'city',u'pop', u'total members',u'members (% of pop)',u'% growth 2013',u'members of largest group',u'cost_of_living_index_2013', u'rent_index_2013', u'groceries_index_2013', u'restaurant_price_index_2013', u'local_purchasing_power_index_2013']
+
+dense_test_df = dense_test_df[cols]
+dense_test_df= dense_test_df[dense_test_df['pop'].notnull()]
+dense_test_df.set_index('city', inplace=True)
+#dense_test_df.drop('bea_2013', axis=1, inplace=True)
+dense_test_df.drop('boulder', axis=0, inplace=True)
