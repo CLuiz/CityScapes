@@ -30,6 +30,11 @@ def clean_me(bea_df):
     bea_df['city'] = bea_df['bea_state'].apply(lambda x: x.split(',')[0])
     bea_df['city'] = bea_df['city'].apply(lambda x: x.lower().replace('-', '_').replace(' ', '_'))
     bea_df['bea_state'] = bea_df['bea_state'].apply(lambda x: x.split(',')[-1])
+    bea_df['city'] = [item.replace('boise_city', 'boise') for item in bea_df['city']]
+    bea_df['city'] = [item.replace('atlanta_sandy_springs_roswell', 'atlanta') for item in bea_df['city']]
+    bea_df['city'] = [item.replace('charlotte_concord_gastonia', 'charlotte') for item in bea_df['city']]
+    bea_df['city'] = [item.replace('baltimore_columbia_towson', 'baltimore') for item in bea_df['city']]
+    bea_df['city'] = [item.replace('chicago_naperville_elgin', 'chicago') for item in bea_df['city']]
     bea_df.set_index('city', inplace=True)
     return bea_df
 

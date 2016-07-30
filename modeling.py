@@ -6,18 +6,37 @@ from sklearn.preprocessing import StandardScaler
 
 # get  a dense matrix rolling:
 
-dense_test_df = master_merger_df[master_merger_df['2012'].notnull() ==True]
 '''
 lets cluster on only data from 2013!!!
 '''
-# = master_merger_df[master_merger_df['pop'].notnull()]
-cols = [u'city',u'pop', u'total members',u'members (% of pop)',u'% growth  2013',u'members of largest group',u'cost_of_living_index_2013', u'rent_index_2013', u'groceries_index_2013', u'restaurant_price_index_2013', u'local_purchasing_power_index_2013']
+dense_2013 = master_merger_df[master_merger_df['pop'].notnull() ==True]
+cols = [u'city',u'pop', u'total members',u'members (% of pop)',u'% growth 2013',u'members of largest group',u'cost_of_living_index_2013', u'rent_index_2013', u'groceries_index_2013', u'restaurant_price_index_2013', u'local_purchasing_power_index_2013']
 
-dense_test_df = dense_test_df[cols]
-dense_test_df= dense_test_df[dense_test_df['pop'].notnull()]
-dense_test_df.set_index('city', inplace=True)
+dense_2013 = dense_2013[cols]
+dense_2013= dense_2013[dense_2013['pop'].notnull()]
+dense_2013.set_index('city', inplace=True)
 #dense_test_df.drop('bea_2013', axis=1, inplace=True)
-dense_test_df.drop('boulder', axis=0, inplace=True)
+dense_2013.drop('boulder', axis=0, inplace=True)
+
+'''
+lets cluster on only data from 2014!!!
+'''
+dense_2014 = master_merger_df[master_merger_df['pop'].notnull() ==True]
+cols = [u'city',u'pop', u'total members',u'members (% of pop)',u'% growth 2013',u'members of largest group',u'cost_of_living_index_2014', u'rent_index_2014', u'groceries_index_2014', u'restaurant_price_index_2014', u'local_purchasing_power_index_2014']
+
+dense_2014 = dense_2014[cols]
+dense_2014= dense_2014[dense_2014['pop'].notnull()]
+dense_2014.set_index('city', inplace=True)
+#dense_test_df.drop('bea_2013', axis=1, inplace=True)
+#dense_2014.drop('boulder', axis=0, inplace=True)
+
+
+X_2014 = dense_test_df.values
+X_2014 = StandardScaler().fit_transform(X_2013)
+
+
+
+
 
 
 

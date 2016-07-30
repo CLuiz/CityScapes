@@ -82,10 +82,10 @@ def clean_up_df(df):
     return df
 
 def merger(df1, df2):
-        '''
-        INPUT: Two will enter...
-        OUTPUT: One will leave...
-        '''
+    '''
+    INPUT: Two will enter...
+    OUTPUT: One will leave...
+    '''
     df_merge = pd.merge(df1, df2,
               left_on=['city', 'state'],
               right_on=['city', 'state'],

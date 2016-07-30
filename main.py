@@ -15,13 +15,14 @@ census_pop_df = pc.get_pop_data('data/1790-2010_MASTER.csv')
 rj_df = pc.get_rj_data('data/rj_metrics.txt')
 new_df = pd.concat([census_pop_df, rj_df], axis=1)
 
+print 'Census data merged to RJ metrics data!'
 # clean and join bureau of economic affairs info
 
 raw_bea = gbd.get_bea_data('http://www.bea.gov/newsreleases/regional/gdp_metro/2015/xls/gdp_metro0915.xls')
 bea_df = gbd.clean_me(raw_bea)
 bea_df = bea_df[:-2]
 next_df = pd.concat([new_df, bea_df[bea_df['bea_2014'] > 20000]], axis=1)
-
+print 'Bureau of Economic Affairs data merged!
 # incorporate numbeo data:
 
 url_prefix = 'http://www.numbeo.com/cost-of-living/region_rankings.jsp?title='
@@ -83,7 +84,7 @@ merged7.reset_index(inplace=True)
 next_merged_df = pd.merge(next_df, merged7, left_on='city', right_on='city', how='outer')
 next_merged_df.set_index('city', inplace=True)
 # 18 data frames successfully merged!!!!
-
+print 'Numbeo data merged!'
 globule = glob.glob('/Users/IXChris/Desktop/G/capstone/data/biggestuscities/cities/*.csv')
 pop_df = rpc.recent_pop_merger(globule)
 
@@ -91,6 +92,7 @@ next_merged_df.reset_index(inplace=True)
 pop_df.reset_index(inplace=True)
 
 master_merger_df = (pd.merge(next_merged_df, pop_df, left_on='city', right_on='city', how='outer'))
+print 'Recent population data merged!''
 master_merger_df['state_y'].fillna(master_merger_df['state_x'], inplace=True)
 master_merger_df['state_y'].fillna(master_merger_df['ST'], inplace=True)
 master_merger_df['state_y'].fillna(master_merger_df['bea_state'], inplace=True)
@@ -107,15 +109,15 @@ del master_merger_df['st']
 del master_merger_df['bea_state']
 
 # get ready for modelling!
-dense_test_df = master_merger_df[master_merger_df['2012'].notnull() ==True]
+dense_2013 = master_merger_df[master_merger_df['2013'].notnull() ==True]
 '''
 lets cluster on only data from 2013!!!
 '''
 # = master_merger_df[master_merger_df['pop'].notnull()]
 cols = [u'city',u'pop', u'total members',u'members (% of pop)',u'% growth 2013',u'members of largest group',u'cost_of_living_index_2013', u'rent_index_2013', u'groceries_index_2013', u'restaurant_price_index_2013', u'local_purchasing_power_index_2013']
 
-dense_test_df = dense_test_df[cols]
-dense_test_df= dense_test_df[dense_test_df['pop'].notnull()]
-dense_test_df.set_index('city', inplace=True)
+dense_2013 = dense_2013[cols]
+dense_2013= dense_2013[dense_2013['pop'].notnull()]
+dense_2013.set_index('city', inplace=True)
 #dense_test_df.drop('bea_2013', axis=1, inplace=True)
-dense_test_df.drop('boulder', axis=0, inplace=True)
+dense_2013.drop('boulder', axis=0, inplace=True)
