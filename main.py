@@ -8,7 +8,8 @@ import get_bea_data as gbd
 import population_cleanup as pc
 import recent_pop_cleanup as rpc
 import glob
-
+import walkscore as ws
+import os
 
 # read in population (1790 - 2010) and rj metrics meetup info (2013-2014) and merge df's
 census_pop_df = pc.get_pop_data('data/1790-2010_MASTER.csv')
@@ -22,7 +23,7 @@ raw_bea = gbd.get_bea_data('http://www.bea.gov/newsreleases/regional/gdp_metro/2
 bea_df = gbd.clean_me(raw_bea)
 bea_df = bea_df[:-2]
 next_df = pd.concat([new_df, bea_df[bea_df['bea_2014'] > 20000]], axis=1)
-print 'Bureau of Economic Affairs data merged!
+print 'Bureau of Economic Affairs data merged!'
 # incorporate numbeo data:
 
 url_prefix = 'http://www.numbeo.com/cost-of-living/region_rankings.jsp?title='
@@ -92,7 +93,7 @@ next_merged_df.reset_index(inplace=True)
 pop_df.reset_index(inplace=True)
 
 master_merger_df = (pd.merge(next_merged_df, pop_df, left_on='city', right_on='city', how='outer'))
-print 'Recent population data merged!''
+print 'Recent population data merged!'
 master_merger_df['state_y'].fillna(master_merger_df['state_x'], inplace=True)
 master_merger_df['state_y'].fillna(master_merger_df['ST'], inplace=True)
 master_merger_df['state_y'].fillna(master_merger_df['bea_state'], inplace=True)
@@ -108,11 +109,25 @@ del master_merger_df['index']
 del master_merger_df['st']
 del master_merger_df['bea_state']
 
+# read in and merge walkscore data:
+url = 'https://www.walkscore.com/cities-and-neighborhoods/'
+walk_data = ws.get_walk_data(url)
+# strip off Australian cities:
+#walk_data = walk_data[:-42]
+walk_df = ws.data_framify(walk_data)
+walk_df.set_index(['city', 'state'], inplace=True)
+master_merger_df.reset_index()
+master_merger_df['state'].str.lower()
+master_merger_df.set_index(['city', 'state'], inplace=True)
+df_with_walkscore = pd.concat([master_merger_df, walk_df], axis=1)
+# build in an if path exists thing here
+
 # get ready for modelling!
 dense_2013 = master_merger_df[master_merger_df['2013'].notnull() ==True]
 '''
 lets cluster on only data from 2013!!!
 '''
+dense_2013.reset_index(inplace=True)
 # = master_merger_df[master_merger_df['pop'].notnull()]
 cols = [u'city',u'pop', u'total members',u'members (% of pop)',u'% growth 2013',u'members of largest group',u'cost_of_living_index_2013', u'rent_index_2013', u'groceries_index_2013', u'restaurant_price_index_2013', u'local_purchasing_power_index_2013']
 
