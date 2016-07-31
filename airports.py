@@ -1,5 +1,5 @@
 import pandas as pd
-
+import os
 
 tabs = pd.read_table('/Users/IXChris/Desktop/G/capstone/data/air_traffic_table.txt')
 
@@ -26,13 +26,32 @@ fixed_chicago = tabs.loc[tabs['city'] == 'chicago', 'passengers'].sum()
 fixed_new_york = tabs.loc[tabs['city'] == 'new_york', 'passengers'].sum() + tabs.loc[tabs['city'] == 'newark', 'passengers'].sum()
 fixed_washington = tabs.loc[tabs['city'] == 'washington_dc', 'passengers'].sum() + tabs.loc[tabs['city'] == 'baltimore', 'passengers'].sum()
 fixed_houston = tabs.loc[tabs['city'] == 'houston', 'passengers'].sum()
-# todo get these values updated!!!11!!!1!1
 
 
-# account for multi-city airports
+# new_york not working
+tabs.set_index('city', inplace=True)
+tabs.set_value('dallas', 'passengers', fixed_dallas)
+tabs.set_value('chicago', 'passengers', fixed_chicago)
+tabs.set_value('washington_dc', 'passengers', fixed_washington)
+tabs.set_value('houston', 'passengers', fixed_houston)
+tabs.set_value('new_york', 'passengers', fixed_new_york)
+tabs.set_value('washington_dc', 'state', 'dc')
+tabs.reset_index(inplace=True)
+
+# account for multi-city airports not working yet
 baltimore = fixed_washington
 newark = fixed_new_york
 fort_worth = fixed_dallas
+
+
+# this is working
+fort_worth = tabs.loc[tabs['city'] == 'dallas']
+fort_worth['city'] = 'fort_worth'
+baltimore = tabs.loc[tabs['city'] == 'washington_dc']
+baltimore['city'] = 'baltimore'
+baltimore['state'] = 'md'
+newark = tabs.loc[tabs['city'] == 'new_york']
+newark['city'] = 'newark'
 tacoma = tabs.loc[tabs['city'] == 'seattle']
 tacoma['city'] = 'tacoma'
 st_paul = tabs.loc[tabs['city'] == 'minneapolis']
@@ -41,5 +60,17 @@ durham = tabs.loc[tabs['city'] == 'raleigh']
 durham['city'] = 'durham'
 
 # add duplicated city rows
-add_cities = [tacoma, st_paul, durham]
+add_cities = [tacoma, st_paul, durham, fort_worth, baltimore, newark]
 tabs = tabs.append(add_cities)
+
+# remove duplicate rows
+tabs = tabs.drop_duplicates(subset='city', keep='last')
+
+cols = [u'city', u'state', u'passengers']
+tabs = tabs[cols]
+tabs.set_index('city', inplace=True)
+
+path = os.getcwd()
+filename = '/data/airtraffic.csv'
+file_path = path + filename
+tabs.to_csv(file_path)

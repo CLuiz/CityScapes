@@ -98,7 +98,7 @@ master_merger_df['state_y'].fillna(master_merger_df['state_x'], inplace=True)
 master_merger_df['state_y'].fillna(master_merger_df['ST'], inplace=True)
 master_merger_df['state_y'].fillna(master_merger_df['bea_state'], inplace=True)
 master_merger_df['state'] = master_merger_df['state_y']
-
+master_merger_df['state'] = master_merger_df['state'].str.lower()
 cols = master_merger_df.columns
 cols= [str(col).lower() for col in cols]
 master_merger_df.columns = cols
@@ -121,6 +121,18 @@ master_merger_df['state'].str.lower()
 master_merger_df.set_index(['city', 'state'], inplace=True)
 df_with_walkscore = pd.concat([master_merger_df, walk_df], axis=1)
 # build in an if path exists thing here
+print 'Walkscore data merged!'
+
+# incorporate air traffic data:
+path = os.getcwd()
+filename = '/data/airtraffic.csv'
+file_path = path + filename
+air_df = pd.read_csv(file_path)
+air_df.set_index(['city', 'state'], inplace=True)
+df_with_walkscore.reset_index(inplace=True)
+df_with_walkscore.set_index(['city', 'state'], inplace=True)
+df_with_air_traffic = pd.concat([df_with_walkscore, air_df], axis=1)
+print "Air traffic data merged"
 
 # get ready for modelling!
 dense_2013 = master_merger_df[master_merger_df['2013'].notnull() ==True]
