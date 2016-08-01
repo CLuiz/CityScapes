@@ -28,7 +28,7 @@ fixed_washington = tabs.loc[tabs['city'] == 'washington_dc', 'passengers'].sum()
 fixed_houston = tabs.loc[tabs['city'] == 'houston', 'passengers'].sum()
 
 
-# new_york not working
+
 tabs.set_index('city', inplace=True)
 tabs.set_value('dallas', 'passengers', fixed_dallas)
 tabs.set_value('chicago', 'passengers', fixed_chicago)

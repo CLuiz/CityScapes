@@ -87,10 +87,7 @@ for name, mod in mods.items():
 #  array([1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 2, 1, 0, 1, 1, 1, 1, 0, 0, 0], dtype=int32),
 #  array([5, 5, 0, 2, 4, 6, 5, 0, 5, 6, 2, 0, 3, 5, 2, 5, 0, 4, 7, 1, 7, 0], dtype=int32)]
 # Index([u'atlanta', u'austin', u'baltimore', u'boston', u'charlotte',
-#        u'chicago', u'dallas', u'denver', u'houston', u'los_angeles', u'miami',
-#        u'minneapolis', u'new_york', u'orlando', u'philadelphia', u'pittsburgh',
-#        u'portland', u'raleigh', u'san_diego', u'san_francisco', u'san_jose',
-#        u'seattle'],
+#        u'chicago', u'dallas', u'denver', u'houston', u'los_angeles', u'miami', u'minneapolis', u'new_york', u'orlando', u'philadelphia', u'pittsburgh', u'portland', u'raleigh', u'san_diego', u'san_francisco', u'san_jose', u'seattle'],
 
 
 
