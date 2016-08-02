@@ -134,6 +134,19 @@ df_with_walkscore.set_index(['city', 'state'], inplace=True)
 df_with_air_traffic = pd.concat([df_with_walkscore, air_df], axis=1)
 print "Air traffic data merged"
 
+
+# integrate me!!!
+p_dense_df =pd.read_csv("/Users/IXChris/Desktop/G/Cityscapes/data/biggestuscities/pop_density.csv")
+grad_df = pd.read_csv('/Users/IXChris/Desktop/G/Cityscapes/data/biggestuscities/clean_grad.csv')
+foreign_df = pd.read_csv('/Users/IXChris/Desktop/G/Cityscapes/data/biggestuscities/clean_foreign_born.csv')
+df_list = [p_dense_df, grad_df, foreign_df]
+for item in df_list:
+    item.set_index('city', inplace=True)
+df_3way = pd.concat(df_list, axis=1)
+print 'College graduates, foreign born, and population density data merged!'
+# merge the above into the master df
+
+
 # get ready for modelling!
 dense_2013 = master_merger_df[master_merger_df['2013'].notnull() ==True]
 '''
