@@ -1,7 +1,7 @@
 import glob
 import pandas as pd
 
-globule = glob.glob('/Users/IXChris/Desktop/G/capstone/data/biggestuscities/cities/*.csv')
+globule = glob.glob('/Users/IXChris/Desktop/G/cityscapes/data/biggestuscities/cities/*.csv')
 def recent_pop_merger(globule):
     frame_names = [thing.split('/')[-1].split('.')[0].split('_')[0] for thing in globule]
 
@@ -34,5 +34,5 @@ def recent_pop_merger(globule):
     return new
 
 if __name__ == '__main__':
-    globule = glob.glob('/Users/IXChris/Desktop/G/capstone/data/biggestuscities/cities/*.csv')
+    globule = glob.glob('/Users/IXChris/Desktop/G/cityscapes/data/biggestuscities/cities/*.csv')
     recent_pop_merger(globule)

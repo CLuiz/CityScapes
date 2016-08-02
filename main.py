@@ -86,7 +86,7 @@ next_merged_df = pd.merge(next_df, merged7, left_on='city', right_on='city', how
 next_merged_df.set_index('city', inplace=True)
 # 18 data frames successfully merged!!!!
 print 'Numbeo data merged!'
-globule = glob.glob('/Users/IXChris/Desktop/G/capstone/data/biggestuscities/cities/*.csv')
+globule = glob.glob('/Users/IXChris/Desktop/G/cityscapes/data/biggestuscities/cities/*.csv')
 pop_df = rpc.recent_pop_merger(globule)
 
 next_merged_df.reset_index(inplace=True)
@@ -144,9 +144,19 @@ for item in df_list:
     item.set_index('city', inplace=True)
 df_3way = pd.concat(df_list, axis=1)
 print 'College graduates, foreign born, and population density data merged!'
+print ' ^^Not yet...but everything up to here works...'
 # merge the above into the master df
 
+df_with_air_traffic.reset_index(inplace=True)
+df_with_air_traffic.set_index('city', inplace = True)
+more_stuff = df_with_air_traffic.join(df_3way)
 
+'''
+get this done:
+st_pete =more_stuff[more_stuff['city'] == 'st_petersburg'].fillna(0).sum(axis=0)
+st_pete['city'] = 'st_pete'
+more_stuff.append(st_pete, ignore_index=True)
+'''
 # get ready for modelling!
 dense_2013 = master_merger_df[master_merger_df['2013'].notnull() ==True]
 '''

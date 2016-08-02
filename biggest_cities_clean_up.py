@@ -26,7 +26,8 @@ replace_dict = {'paul': 'st_paul',
                 'new_jersey': 'jersey_city',
                 'corpus': 'corpus_christi',
                 'angeles': 'los_angeles',
-                'chesapeake': 'chesapeake_bay'
+                'chesapeake': 'chesapeake_bay',
+                'antonio': 'san_antonio'
 }
 
 # pop_density data first
