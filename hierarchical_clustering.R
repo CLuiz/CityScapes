@@ -21,7 +21,10 @@ project <- predict(princ, newdata=cluster_matrix)[,1:nComp]
 project.plus <- cbind(as.data.frame(project),
                      cluster=as.factor(groups),
                       city=data$city)
-ggplot(project.plus, aes(x=PC2, y=PC1)) +
+ggplot(project.plus, aes(x=PC1, y=PC2)) +
   geom_point(aes(shape=cluster)) +
   geom_text(aes(label=city),
-            hjust=0, vjust=1)
+            hjust=0, vjust=1) +
+  xlim(c(-.2, .25)) +
+  ylim(c(-.125, .1))
+

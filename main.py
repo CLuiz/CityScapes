@@ -151,6 +151,8 @@ df_with_air_traffic.reset_index(inplace=True)
 df_with_air_traffic.set_index('city', inplace = True)
 more_stuff = df_with_air_traffic.join(df_3way)
 
+more_stuff['passengers'] = more_stuff['passengers'].fillna(-1)
+
 '''
 get this done:
 st_pete =more_stuff[more_stuff['city'] == 'st_petersburg'].fillna(0).sum(axis=0)
