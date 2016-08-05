@@ -18,10 +18,10 @@ princ <- prcomp(cluster_matrix)
 nComp <- 2
 project <- predict(princ, newdata=cluster_matrix)[,1:nComp]
 
-project.plus <- cbind(as.data.frame(project),
+pca_clusters <- cbind(as.data.frame(project),
                      cluster=as.factor(groups),
                       city=data$city)
-ggplot(project.plus, aes(x=PC1, y=PC2)) +
+ggplot(pca_clusters, aes(x=PC1, y=PC2)) +
   geom_point(aes(shape=cluster)) +
   geom_text(aes(label=city,),
             hjust=0, vjust=1) +
