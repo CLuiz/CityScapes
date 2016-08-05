@@ -159,6 +159,12 @@ st_pete =more_stuff[more_stuff['city'] == 'st_petersburg'].fillna(0).sum(axis=0)
 st_pete['city'] = 'st_pete'
 more_stuff.append(st_pete, ignore_index=True)
 '''
+
+model_stuff= more_stuff[more_stuff['rent_index_2016'].notnull()==True]
+
+cols = [u'city',u'pop', u'total members',u'members (% of pop)',u'% growth 2013',u'members of largest group',u'cost_of_living_index_2016', u'rent_index_2016', u'groceries_index_2016', u'restaurant_price_index_2016', u'local_purchasing_power_index_2016']
+
+
 # get ready for modelling!
 dense_2013 = master_merger_df[master_merger_df['2013'].notnull() ==True]
 '''
