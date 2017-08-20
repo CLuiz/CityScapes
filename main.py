@@ -1,15 +1,17 @@
 from __future__ import division
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+import glob
 import os
-import numbeo_scraper as ns
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
 import get_bea_data as gbd
+import numbeo_scraper as ns
 import population_cleanup as pc
 import recent_pop_cleanup as rpc
-import glob
 import walkscore as ws
-import os
+
 
 # read in population (1790 - 2010) and rj metrics meetup info (2013-2014) and merge df's
 census_pop_df = pc.get_pop_data('data/1790-2010_MASTER.csv')
@@ -38,7 +40,7 @@ zipped = list(zip(year_list, table_list))
 df_dict = ns.build_data_frames(zipped)
 
 for item in year_list:
-    columns= ns.fix_em(['Rank','City','Cost of Living Index','Rent Index','Cost of Living Plus Rent Index',
+    columns = ns.fix_em(['Rank','City','Cost of Living Index','Rent Index','Cost of Living Plus Rent Index',
           'Groceries Index','Restaurant Price Index','Local Purchasing Power Index'])
     first_cols = columns[:2]
     first_cols.extend([column + '_{}'.format(item)for column in columns[2:]])
@@ -136,7 +138,7 @@ print "Air traffic data merged"
 
 
 # integrate me!!!
-p_dense_df =pd.read_csv("/Users/IXChris/Desktop/G/Cityscapes/data/biggestuscities/pop_density.csv")
+p_dense_df = pd.read_csv("/Users/IXChris/Desktop/G/Cityscapes/data/biggestuscities/pop_density.csv")
 grad_df = pd.read_csv('/Users/IXChris/Desktop/G/Cityscapes/data/biggestuscities/clean_grad.csv')
 foreign_df = pd.read_csv('/Users/IXChris/Desktop/G/Cityscapes/data/biggestuscities/clean_foreign_born.csv')
 df_list = [p_dense_df, grad_df, foreign_df]
@@ -155,7 +157,7 @@ more_stuff['passengers'] = more_stuff['passengers'].fillna(-1)
 
 '''
 get this done:
-st_pete =more_stuff[more_stuff['city'] == 'st_petersburg'].fillna(0).sum(axis=0)
+st_pete = more_stuff[more_stuff['city'] == 'st_petersburg'].fillna(0).sum(axis=0)
 st_pete['city'] = 'st_pete'
 more_stuff.append(st_pete, ignore_index=True)
 '''
@@ -166,7 +168,7 @@ cols = [u'city',u'pop', u'total members',u'members (% of pop)',u'% growth 2013',
 
 
 # get ready for modelling!
-dense_2013 = master_merger_df[master_merger_df['2013'].notnull() ==True]
+dense_2013 = master_merger_df[master_merger_df['2013'].notnull() == True]
 '''
 lets cluster on only data from 2013!!!
 '''
@@ -175,7 +177,7 @@ dense_2013.reset_index(inplace=True)
 cols = [u'city',u'pop', u'total members',u'members (% of pop)',u'% growth 2013',u'members of largest group',u'cost_of_living_index_2013', u'rent_index_2013', u'groceries_index_2013', u'restaurant_price_index_2013', u'local_purchasing_power_index_2013']
 
 dense_2013 = dense_2013[cols]
-dense_2013= dense_2013[dense_2013['pop'].notnull()]
+dense_2013 = dense_2013[dense_2013['pop'].notnull()]
 dense_2013.set_index('city', inplace=True)
 #dense_test_df.drop('bea_2013', axis=1, inplace=True)
 dense_2013.drop('boulder', axis=0, inplace=True)
