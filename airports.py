@@ -1,5 +1,7 @@
-import pandas as pd
+"""Clean up air traffic data and generate csv"""
 import os
+
+import pandas as pd
 
 tabs = pd.read_table('/Users/IXChris/Desktop/G/capstone/data/air_traffic_table.txt')
 
@@ -17,7 +19,7 @@ tabs['city'] = tabs['city'].map(lambda x: x.replace(' ', '_').replace('.', '').r
 # clean up data
 second_cities = [item.split('/') for item in tabs['city'] if '/' in item]
 tabs['city'] = tabs['city'].map(lambda x: x.split('/')[0])
-tabs['passengers'] =tabs['passengers'].map(lambda x: int(x.replace(',', '')))
+tabs['passengers'] = tabs['passengers'].map(lambda x: int(x.replace(',', '')))
 tabs['state'] = tabs['state'].map(lambda x: x.split('/')[0].lower())
 
 # account for mulit-airports cities
