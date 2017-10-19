@@ -7,7 +7,7 @@ def get_bea_data(url):
     OUTPUT: raw df to pass to cleaning function
     '''
     file_name = url.split('/')[-1].split('.')[0]
-    path = os.getcwd()+'/data/BEA' #/{}'.format(file_name)
+    path = os.getcwd() +'/data/BEA' #/{}'.format(file_name)
     file_path = '{}/{}.csv'.format(path, file_name)
 
     if not os.path.exists(path):

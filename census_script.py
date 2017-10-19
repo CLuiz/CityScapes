@@ -12,19 +12,6 @@ soup_links = soup.findAll('a', href=re.compile('^www2.census.gov/programs-survey
 
 links = re.findall("www2.census.gov/programs-surveys/susb/datasets/1997", str(doc))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 # http://www2.census.gov/programs-surveys/susb/datasets/1997/msa_2digitsic_1997.txt
 #
 # http://www2.census.gov/programs-surveys/susb/datasets/1997/us_state_4digitsic_1997.txt
