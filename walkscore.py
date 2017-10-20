@@ -14,9 +14,9 @@ def data_framify(walk_data):
     #strip off Australian cities:
     walk_data = walk_data[:-42]
     # break into list of lists containing city:info
-    chunked= [walk_data[x:x+6] for x in xrange(0, len(walk_data), 6)]
+    chunked = [walk_data[x:x+6] for x in xrange(0, len(walk_data), 6)]
     # remove AU and CA cities
-    chunked1 =chunked[:88]
+    chunked1 = chunked[:88]
     chunked2 = chunked[114:]
     chunked1.extend(chunked2)
 
