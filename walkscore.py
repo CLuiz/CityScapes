@@ -1,13 +1,16 @@
+import os
+
 import requests
+import pandas as pd
 from bs4 import BeautifulSoup
 from numbeo_scraper import clean_up
-import pandas as pd
 
 
 def get_walk_data(url):
     doc = requests.get(url).text
     soup = BeautifulSoup(doc, 'lxml')
     return clean_up(soup)
+
 
 def data_framify(walk_data):
     # break into list of lists containing city:info
@@ -22,13 +25,20 @@ def data_framify(walk_data):
     walk_df = pd.DataFrame(chunked1, columns=cols)
     walk_df.replace('--', -1, inplace=True)
     walk_df['state'] = walk_df['state'].str.lower() #apply(lambda x: x.lower())
-    walk_df['city'] = walk_df['city'].str.lower().replace(' ', '_').replace('-', '_').replace('.', ''))
+    walk_df['city'] = (walk_df['city'].str.lower()
+                       .replace(' ', '_')
+                       .replace('-', '_')
+                       .replace('.', ''))
 
     walk_df['city'] = [item.replace('boise_city', 'boise') for item in walk_df['city']]
     # save this as  a csv for later
     return walk_df
-# check wdc, louisville, north lv, boise, vBeach, st.louis, lexington, st.pete, jersey city, winston-salem
-def csv_me(df, target_directory_name='data', dir_prefix='walkscore' ):
+
+    # check wdc, louisville, north lv, boise, vBeach, st.louis, lexington,
+    # st.pete, jersey city, winston-salem
+
+
+def csv_me(df, target_directory_name='data', dir_prefix='walkscore'):
     path = os.path.join(os.getcwd(), target_directory_name, dir_prefix)
     file_path = os.path.join(path, str(df))
 
@@ -38,7 +48,12 @@ def csv_me(df, target_directory_name='data', dir_prefix='walkscore' ):
         df.to_csv(file_path)
 
 
-if __name__ == '__main__':
+def main():
     url = 'https://www.walkscore.com/cities-and-neighborhoods/'
     walk_data = get_walk_data(url)
     walk_df = data_framify(walk_data)
+    return walk_df
+
+
+if __name__ == '__main__':
+   walk_df = main()
