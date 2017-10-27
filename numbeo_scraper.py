@@ -109,10 +109,19 @@ def main():
     table_list = [clean_up(soup) for soup in soup_can]
     zipped = list(zip(year_list, table_list))
     df_dict = build_data_frames(zipped)
-    columns= ['Rank','City','Cost of Living Index','Rent Index','Cost of Living Plus Rent Index','Groceries Index','Restaurant Price Index','Local Purchasing Power Index']
+    columns = ['Rank','City', 'Cost of Living Index',
+               'Rent Index', 'Cost of Living Plus Rent Index',
+               'Groceries Index', 'Restaurant Price Index',
+               'Local Purchasing Power Index']
+
     columns = fix_em(columns)
+
     for item in year_list:
-        columns= fix_em(['Rank','City','Cost of Living Index','Rent Index','Cost of Living Plus Rent Index', 'Groceries Index','Restaurant Price Index','Local Purchasing Power Index'])
+        columns = fix_em(['Rank', 'City', 'Cost of Living Index',
+                          'Rent Index','Cost of Living Plus Rent Index',
+                          'Groceries Index', 'Restaurant Price Index',
+                          'Local Purchasing Power Index'])
+
         first_cols = columns[:2]
         first_cols.extend([column + '_{}'.format(item)for column in columns[2:]])
         df_dict[item].columns = first_cols

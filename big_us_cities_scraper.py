@@ -39,7 +39,6 @@ def clean_top_100(tabs, skip_rows):
                      'Urban', 'Beach','Rouge', 'Los', 'El','Vista',
                      'County', 'Fort', 'Las', 'Christi', 'Ana']
 
-    # do this with a dictionary
     replace_dict = {'Francisco': 'san_francisco',
                     'Angeles': 'los_angeles',
                     'Carolina', 'north_carolina',
@@ -79,11 +78,11 @@ def clean_top_100(tabs, skip_rows):
 
 
 def process_df(clean_table, file_path, cols):
-    chunks = [clean_table[x:x+4] for x in xrange(0, len(clean_table), 4)]
+    chunks = [clean_table[x:x+4] for x in range(0, len(clean_table), 4)]
     df = pd.DataFrame(chunks)
     df.columns = cols
     df = df.drop('rank', axis=1)
-    df['city']= df['city'].apply(lambda x: x.lower())
+    df['city']= df['city'].str.lower()
     df.set_index('city', inplace=True)
     df_csv = df.copy()
     df_csv.to_csv(file_path)
