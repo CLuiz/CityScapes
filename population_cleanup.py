@@ -6,6 +6,7 @@ import seaborn as sns
 import os
 import get_bea_data as gbd
 
+
 def get_pop_data(file_path='data/1790-2010_MASTER.csv'):
     '''
     INPUT: File path to US census population csv file
@@ -23,6 +24,7 @@ def get_pop_data(file_path='data/1790-2010_MASTER.csv'):
     df.drop(['Place Type','CityST', 'ID','LAT_BING', 'LON_BING', '1790','1800','1810', '1820', '1830', '1840', '1850', '1860', '1870', '1880', '1890', '1900', '1910', '1920',
         '1930', '1940',], axis=1, inplace=True)
     return df
+
 
 def get_rj_data(file_path='data/rj_metrics.txt'):
     '''

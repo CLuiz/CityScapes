@@ -16,19 +16,19 @@ def main()
   cols2 = ['rank', 'city','state_iph','inc_per_household']
 
   house_inc_df = bs.get_grad_data(url2, cols2, skip_rows=2)
-  house_inc_df['inc_per_household'] = house_inc_df['inc_per_household'].apply(lambda x: x.replace(' ', ''))
+  house_inc_df['inc_per_household'] = house_inc_df['inc_per_household'].str.replace(' ', ''))
 
 
-  url3 ='https://www.biggestuscities.com/demographics/us/business-retail-sales-per-capita-by-top-100-city'
+  url3 = 'https://www.biggestuscities.com/demographics/us/business-retail-sales-per-capita-by-top-100-city'
 
   cols3 = ['rank', 'city','state_rs','retail_sales']
   retail_sales_df = bs.get_grad_data(url3, cols3, skip_rows=2)
-  retail_sales_df['retail_sales'] = retail_sales_df['retail_sales'].apply(lambda x: x.replace(' ', ''))
+  retail_sales_df['retail_sales'] = retail_sales_df['retail_sales'].str.replace(' ', ''))
 
-  url4 ='https://www.biggestuscities.com/demographics/us/business-total-businesses-by-top-100-city'
+  url4 = 'https://www.biggestuscities.com/demographics/us/business-total-businesses-by-top-100-city'
   cols4 = ['rank', 'city','state_bs','total_businesses']
   businesses_df = bs.get_grad_data(url4, cols4, skip_rows=2)
-  businesses_df['total_businesses'] = businesses_df['total_businesses'].apply(lambda x: x.replace(' ', ''))
-  
+  businesses_df['total_businesses'] = businesses_df['total_businesses'].str.replace(' ', ''))
+
   if __name__ == '__main__':
     main()
