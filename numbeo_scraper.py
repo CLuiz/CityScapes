@@ -10,7 +10,7 @@ def get_pages(url):
     OUTPUT: List of raw soup objects
     '''
     # check compatibility with main for list vs single url input and output
-    doc=requests.get(url).text
+    doc = requests.get(url).text
     soup = BeautifulSoup(doc, 'lxml')
     soup_can.append(soup)
     return soup_can
@@ -39,37 +39,33 @@ def build_data_frames(zipped, chunk=8):
     INPUT: Tuple of form (year, table)
     OUTPUT: Dict in form of {year: DataFrame}
     '''
-    df_dict ={}
+    df_dict = {}
     for item in zipped:
         df_dict[item[0]] = pd.DataFrame([list(entry) for entry in zip(*[iter(item[1])]*chunk)])
     return df_dict
 
         #return dict of df's with years as keys
 
-def df_to_csv(dict_of_dataframes, target_directory_name='data', dir_prefix='Numbeo_cost_of_living'):
+def df_to_csv(df_dict, target_dirname='data', dir_prefix='Numbeo_cost_of_living'):
     '''
     INPUT: Output of build_data_frames function
     OUTPUT: Csv files of dataframes in:     ~/target_directory_name/dir_prefix/filename(default is year)
     '''
-    path = os.getcwd()+'/{}/{}/'.format(target_directory_name, dir_prefix)
+    path = os.getcwd()+'/{}/{}/'.format(target_dirname, dir_prefix)
 
     if not os.path.exists(path):
         os.makedirs(path)
-    for key, item in dict_of_dataframes.iteritems():
+    for key, item in df_dict.iteritems():
         file_path = '{}/{}.csv'.format(path, key)
         if not os.path.isfile(file_path):
-            dict_of_dataframes[key].to_csv(file_path)
+            df_dict[key].to_csv(file_path)
 
 def fix_em(columns):
     '''
     INPUT: List of columns
     OUTPUT: Fixed list of columns
     '''
-    fixed_columns =[]
-    for column in columns:
-        column = column.lower().replace(' ', '_')
-        fixed_columns.append(column)
-    return fixed_columns
+    return [col.lower().replace(' ', '_')  for col in columns]
 
 def clean_up_df(df):
     '''
@@ -102,7 +98,7 @@ table_list =[]
 
 
 def main():
-    # fix me, I'm fugly
+    #TODO fix me, I'm fugly
     urls = build_urls(year_list)
     for url in urls:
         soup_can = get_pages(url)
@@ -149,8 +145,6 @@ def main():
     value_list = ['canada', 'bermuda']
     merged7 = merged7[~merged7['state'].isin(value_list)]
     merged7.to_csv('data/Numbeo_cost_of_living/numbeo_complete.csv')
-# TO DO
-    # pull headers out of soup object
 
 
 if __name__ == '__main__':

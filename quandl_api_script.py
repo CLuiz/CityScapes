@@ -10,9 +10,8 @@ import os
 # get API key from environ
 quandl_api_key = os.environ['QUANDL_API_KEY']
 
-# def function to grab filenames from quandl database(s)
 def get_file_metadata(zip_url):
-    '''
+    ''' Gets filenames from Quandl db.
     INPUT: url of zip file
     OUTPUT: list of lines from each file in zip file
     From Quandl output will be of the form:
@@ -27,8 +26,7 @@ def get_file_metadata(zip_url):
         for line in zipfile.open(name).readlines():
             file_list.append(line.strip('\n').split(','))
     return file_list, dir_prefix
-# list comp ^^
-# file_list = [line for name in names for line in zipfile.open(name).readlines()...]
+
 
 def get_files(file_list, dir_prefix, target_directory_name):
     '''
@@ -62,6 +60,6 @@ def quandl_data(db_codes, target_directory_name='data'):
         file_list, dir_prefix = get_file_metadata(url)
         get_files(file_list, dir_prefix, target_directory_name)
 
-# if __name__ == '__main__':
-#     db_codes = ['NVCA', 'RENCAP', 'CVR', 'COOLEY']
-#     quandl_data(db_codes)
+ if __name__ == '__main__':
+     db_codes = ['NVCA', 'RENCAP', 'CVR', 'COOLEY']
+     quandl_data(db_codes)
